@@ -24,3 +24,5 @@ public class BubbleSort {
         }
     }
 }
+
+//O(n^2)
