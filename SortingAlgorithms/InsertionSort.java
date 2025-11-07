@@ -13,7 +13,7 @@ public class InsertionSort {
 
     public static void insertionSort(int[] arr){
         int temp;
-        
+
         for(int i=0 ; i<arr.length-1; i++){
             temp = arr[i+1];
             int j=i;
@@ -23,6 +23,22 @@ public class InsertionSort {
             }
             
             arr[j+1] = temp;
+        }
+    }
+
+    public static void insertionSortWhile(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j = i - 1;
+
+            // temp'ten büyük olanları bir sağa kaydır
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            // temp'i doğru yerine yerleştir
+            arr[j + 1] = temp;
         }
     }
 }
