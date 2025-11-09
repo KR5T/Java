@@ -1,52 +1,31 @@
 class Pickups {
-    protected String pickupSound;
-
     public Pickups() {
-        System.out.println("   > 1. Pickups (Ebeveyn) Constructor'ı çalıştı.");
-        this.pickupSound = "Bling!"; 
-    }
-    
-    public Pickups(String customSound) {
-        System.out.println("   > 1. Pickups (Ebeveyn) Constructor'ı çalıştı. (Özel Sesli)");
-        this.pickupSound = customSound;
-    }
-    
+        System.out.println("   > Pickups Constructor'ı çalıştı.");
+    } 
     public void update() {
-        System.out.println("Nesne dönüyor...");
+        System.out.println("   > Pickups: Nesne dönüyor...");
     }
 }
-
 class Coin extends Pickups {
-    
     public Coin() {
-        System.out.println("   > 2. Coin (Çocuk) Constructor'ı çalıştı.");
+        System.out.println("   > Coin Constructor'ı çalıştı.");
     }
 
+    @Override
+    public void update() {
+        super.update(); 
+        System.out.println("   > Coin: Nesne aynı zamanda parlıyor!");
+    }
     public void onPickup() {
-        System.out.println("Coin toplandı: +100 puan! Ses: " + pickupSound);
-    }
-}
-
-class Gem extends Pickups {
-
-    public Gem(String sound) {
-        super(sound); 
-        
-        System.out.println("   > 2. Gem (Çocuk) Constructor'ı çalıştı.");
-    }
-    
-    public void onPickup() {
-         System.out.println("Mücevher toplandı: +500 puan! Ses: " + pickupSound);
+        System.out.println("Coin toplandı: +100 puan!");
     }
 }
 public class GameTest {
     public static void main(String[] args) {
-        System.out.println("--- Coin (Gizli super() çağrısı) oluşturuluyor: ---");
+        System.out.println("--- Coin oluşturuluyor: ---");
         Coin myCoin = new Coin();
-        myCoin.onPickup();
 
-        System.out.println("\n--- Gem (Açık super(sound) çağrısı) oluşturuluyor: ---");
-        Gem myGem = new Gem("Parlama Sesi!");
-        myGem.onPickup();
+        System.out.println("\n--- Coin güncelleniyor: ---");
+        myCoin.update(); 
     }
 }
