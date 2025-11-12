@@ -1,31 +1,47 @@
-class Pickups {
-    public Pickups() {
-        System.out.println("   > Pickups Constructor'ı çalıştı.");
-    } 
-    public void update() {
-        System.out.println("   > Pickups: Nesne dönüyor...");
-    }
+abstract class Pickups {
+    public abstract void update();
 }
-class Coin extends Pickups {
-    public Coin() {
-        System.out.println("   > Coin Constructor'ı çalıştı.");
-    }
 
+class Coin extends Pickups {
     @Override
-    public void update() {
-        super.update(); 
-        System.out.println("   > Coin: Nesne aynı zamanda parlıyor!");
-    }
-    public void onPickup() {
-        System.out.println("Coin toplandı: +100 puan!");
-    }
+    public void update() { System.out.println("Coin dönüyor ve parlıyor..."); }
+    
+    // Sadece Coin'e özel metot:
+    public void onPickup() { System.out.println("   >>> Coin alındı! +100 Puan!"); }
 }
+
+class Gem extends Pickups {
+    @Override
+    public void update() { System.out.println("Mücevher dönüyor ve ışıldıyor..."); }
+    
+    // Sadece Gem'e özel metot:
+    public void onShatter() { System.out.println("   >>> Mücevher kırıldı!"); }
+}
+
 public class GameTest {
     public static void main(String[] args) {
-        System.out.println("--- Coin oluşturuluyor: ---");
-        Coin myCoin = new Coin();
+        
+        Pickups[] allPickups = new Pickups[3];
+        allPickups[0] = new Coin();
+        allPickups[1] = new Gem();
+        allPickups[2] = new Coin();
 
-        System.out.println("\n--- Coin güncelleniyor: ---");
-        myCoin.update(); 
+        System.out.println("--- Polimorfik Döngü (instanceof ile) ---");
+        
+        for (Pickups p : allPickups) {
+            
+            // 1. Polimorfik çağrı (Herkes yapar)
+            p.update(); 
+
+            // 2. Tipe özel çağrı (instanceof ve Downcasting)
+            if (p instanceof Coin) {
+                Coin myCoin = (Coin) p; // Downcasting
+                myCoin.onPickup();
+            }
+            else if (p instanceof Gem) {
+                Gem myGem = (Gem) p; // Downcasting
+                myGem.onShatter();
+            }
+        }
     }
 }
