@@ -1,7 +1,7 @@
 package SortingAlgorithms;
 
 public class MergeSort {
-     public static void main(String[] arg){
+    public static void main(String[] arg){
     int array[] = {8, 7, 9, 3, 1, 5, 4, 6};
 
     mergeSort(array);
@@ -13,7 +13,7 @@ public class MergeSort {
 
     private static void mergeSort(int[] arr){
         int length = arr.length;
-        if(length<=1) return;
+        if(length<=1) return; //base case
 
         int middle = length/2;
         int[] leftArray = new int[middle];
@@ -51,7 +51,7 @@ public class MergeSort {
                 i++;
                 r++;
             }
-        }while(l<leftSize && r<rightSize);
+        } while(l<leftSize && r<rightSize);
 
         while(l<leftSize){
             array[i] = leftArray[l];

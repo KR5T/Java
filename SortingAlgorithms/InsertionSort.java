@@ -1,7 +1,7 @@
 package SortingAlgorithms;
 
 public class InsertionSort {
-     public static void main(String[] arg){
+    public static void main(String[] arg){
     int array[] = {8, 7, 9, 3, 1, 5, 4, 6};
 
     insertionSort(array);
