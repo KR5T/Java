@@ -1,3 +1,4 @@
+package examples;
 import java.util.Scanner;
 class addition {
     public static void main(String[] arg){

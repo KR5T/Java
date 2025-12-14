@@ -1,3 +1,4 @@
+package examples;
 import java.util.Scanner;
 
 public class AccountTest {
