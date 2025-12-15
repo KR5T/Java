@@ -223,7 +223,7 @@ public class Main {
     // TEST FUNCTION
 
     public static void testAlgorithm(String name, int[] original, Runnable sortMethod) {
-        int[] arr = Arrays.copyOf(original, original.length);
+        //int[] arr = Arrays.copyOf(original, original.length);
 
         double time = measure(() -> sortMethod.run());
 
