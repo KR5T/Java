@@ -23,7 +23,9 @@ public class GamePanel extends JPanel implements ActionListener{
     Random  random;
 
     GamePanel(){
-
+        random = new Random();
+        this.setPreferredSize(new Dimension());
+        
     }
     public void StartGame(){
 
