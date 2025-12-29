@@ -57,7 +57,12 @@ public class BFS {
         graph.addEdge(2, 6);
 
         graph.BFS(0);
+        graph.BFS(1);
         graph.BFS(2);
+        graph.BFS(3);
         graph.BFS(4);
+        graph.BFS(5);
+        graph.BFS(6);
+
     }
 }
